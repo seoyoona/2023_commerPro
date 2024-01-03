@@ -22,3 +22,5 @@ img {
 .scroll-graphic{position: sticky; top: 0; height: 100vh;}
 .scroll-text{position: relative; }
 .step{background: rgba(255,255,255,.8); padding: .5rem 1rem; border-radius: 10px; margin-bottom: 60vh; box-shadow: rgba(0,0,0,.3) 0 0 3px;}
+
+.bird{position: absolute; left: 0; bottom: 70%; width: 100px; transition: 1.5s 0.5s linear;}

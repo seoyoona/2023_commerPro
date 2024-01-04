@@ -1,20 +1,32 @@
 (() => {
 
     const actions = {
-        birdFlies() {
-            document.querySelector('[data-index="2"] .bird').style.transform = `translateX(${window.innerWidth}px)`
+        birdFlies(key) {
+            if(key) {
+                document.querySelector('[data-index="2"] .bird').style.transform = `translateX(${window.innerWidth}px)`
+            }else{
+            document.querySelector('[data-index="2"] .bird').style.transform = `translateX(-100%)`
+            }
+        },
+        birdFlies2(key) {
+            if(key) {
+                document.querySelector('[data-index="5"] .bird').style.transform = `translate(${window.innerWidth}px, ${-window.innerHeight * 0.7}px)`
+            }else{
+            document.querySelector('[data-index="5"] .bird').style.transform = `translateX(-100%)`
+            }
         }
+
     }
 
     const stepElems = document.querySelectorAll('.step');
     const graphicElems = document.querySelectorAll('.graphic-item');
-    // 현재 활성화도니 (visible 클래스 붙은) .graphic-item 지정
+    // 현재 활성화된 (visible 클래스 붙은) .graphic-item 지정
     let currentItem = graphicElems[0];
     let ioIndex;
 
     const io = new IntersectionObserver((entries, observer) => {
         ioIndex = entries[0].target.dataset.index * 1; //string -> num
-        console.log(ioIndex);
+        // console.log(ioIndex);
     });
 
     for (let i = 0; i < stepElems.length; i++) {
@@ -27,12 +39,15 @@
     function activate(action){
         currentItem.classList.add('visible');
         if (action) {
-            actions[action]();
+            actions[action](true);
         }
     }
 
-    function inactivate(){
+    function inactivate(action){
         currentItem.classList.remove('visible');
+        if (action) {
+            actions[action](false);
+        }
     }
 
     window.addEventListener('scroll',() => {
@@ -58,7 +73,7 @@
                     activate(currentItem.dataset.action);
                 }
         }
-        console.log(temp);
+        // console.log(temp);
     });
 
     activate();

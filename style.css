@@ -15,12 +15,15 @@ img {
 	height: auto;
 }
 .global-width{max-width: 620px; margin: 0 auto; padding: 0 1rem;}
-.graphic-item{position: absolute; top: 0; left: 0; display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; opacity: 0; transition: .5s;}
+.graphic-item{position: absolute; top: 0; left: 0; display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; opacity: 0; transition: .5s; will-change: opacity;}
 .scene-img{max-height: 100vh;}
 .visible{opacity: 1;}
 
-.scroll-graphic{position: sticky; top: 0; height: 100vh;}
+.scroll-graphic{position: sticky; top: 0; height: 100vh; overflow-x: hidden;}
 .scroll-text{position: relative; }
 .step{background: rgba(255,255,255,.8); padding: .5rem 1rem; border-radius: 10px; margin-bottom: 60vh; box-shadow: rgba(0,0,0,.3) 0 0 3px;}
 
 .bird{position: absolute; left: 0; bottom: 70%; width: 100px; transition: 1.5s 0.5s linear;}
+[data-index="5"] .bird{left: 30%; bottom: 30%;}
+
+.global-footer{padding: 2rem 0; text-align: center;}
